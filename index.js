@@ -17,7 +17,7 @@ function toArray (list, start) {
   return ret;
 }
 
-module.exports = function (tag, data, children) {
+module.exports = function (context, tag, data, children, normalizationType) {
   var beg = 1;
 
   // process boolean short circuit
@@ -113,5 +113,5 @@ module.exports = function (tag, data, children) {
   }
 
   // make sure to use real instance instead of proxy as context
-  return Vue._createElement(this._self, tag, data, children);
+  return Vue._createElement(context, tag, data, children, normalizationType);
 };
